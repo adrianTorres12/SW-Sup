@@ -1,0 +1,36 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  body {
+    height: auto;
+  }
+  #ets {
+    height: 90px;    width: 300px;
+  }
+  #nav {
+    box-shadow: 20px 5px 30px gray;
+  }
+  #code {
+    margin-top: 50px;
+    margin-left: 100px;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 30px gray;
+  }
+  #submit {
+    margin-top: 10px;
+  }
+  #info{
+    height: 100px;
+    width: 100%;
+    background-color: ghostwhite;
+    margin-top: 35vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  #tlink {
+    margin-left: 10px;
+  }

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>S&W</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="test.css">
+    <script src="https://kit.fontawesome.com/aa6dba0825.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <nav class="navbar bg-white" id="nav">
+        <div class="container-fluid">
+            <img src="../img/ets.webp" class="img-fluid rounded float-start" alt="ets" id="ets">
+            <div class="volumen-control">
+                <label for="volumen">Volumen:</label>
+                <input type="range" id="volumen" min="0" max="1" step="0.01" value="0.5">
+            </div>
+        </div>
+    </nav>
+    <div id="container">
+
+        <div id="txt">
+            <p>Before start check the volume of your device.</p>
+            <p>Click on the icon.</p>
+            <img src="../img/sound.png" alt="">
+        </div>
+        
+        <audio id="miAudio" src="../audio/test.mp3" autoplay></audio>
+
+    </div>
+    
+    <div class="foot">
+        <a href="audio.html"><img src="../img/arrow.png" id="continue" alt=""></a>
+    </div>
+    
+
+    <script>
+    const audio = document.getElementById("miAudio");
+    const controlVolumen = document.getElementById("volumen");
+
+    // Ajustar volumen con el slider
+    controlVolumen.addEventListener("input", () => {
+      audio.volume = controlVolumen.value;
+    });
+
+    // Cuando termina el audio, esperar 3s y volver a reproducir
+    audio.addEventListener("ended", () => {
+      setTimeout(() => {
+        audio.currentTime = 0;
+        audio.play();
+      }, 1000); 
+    });
+
+    // Manejo del autoplay bloqueado por el navegador
+    document.addEventListener("click", () => {
+      if (audio.paused) {
+        audio.play().catch(err => console.log("Autoplay bloqueado:", err));
+      }
+    });
+  </script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+</body>
+</html>
