@@ -15,7 +15,7 @@
             </div>
         </nav>
 
-        <form id="code" class="col-11" method="post">
+        <form id="formInfo" class="col-11" method="post">
             <div class="row justify-content-center ">
                 <div class="col-10">
                     <label for="exampleInputEmail1" class="form-label">First Name</label>
@@ -23,7 +23,7 @@
                 </div>
                 <div class="col-10">
                     <label for="exampleInputEmail1" class="form-label">Last Name</label>
-                    <input type="text" class="form-control" id="iText" name="Last">
+                    <input type="text" class="form-control" id="iText" name="last">
                 </div>
                 <div class="col-10">
                     <label for="exampleInputEmail1" class="form-label">Student ID</label>
@@ -35,11 +35,17 @@
                 </div>
                 <div class="col-10">
                     <label for="exampleInputEmail1" class="form-label">Country</label>
-                    <input type="text" class="form-control" id="iText" name="country">
+                    <select type="text" class="form-control" id="iText" name="country"> 
+                        <option value="">Choose a country</option>
+                        <option value="El Salvador">El Salvador</option>
+                    </select>
                 </div>
                 <div class="col-10">
                     <label for="exampleInputEmail1" class="form-label">Language</label>
-                    <input type="text" class="form-control" id="iText" name="language">
+                    <select type="text" class="form-control" id="iText" name="language"> 
+                        <option value="">Choose a language</option>
+                        <option value="Spanish">Spanish</option>
+                    </select>
                 </div>
                 <button type="submit" class="btn btn-success col-3" id="submit" name="insert">Save</button>
             </div>
@@ -48,5 +54,10 @@
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <script src="../js/data.js"></script>
 </body>
 </html>

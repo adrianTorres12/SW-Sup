@@ -30,35 +30,12 @@
 
     </div>
     
-    <div class="foot">
+    <footer class="foot">
         <a href="audiotest.html"><img src="../img/arrow.png" id="continue" alt=""></a>
-    </div>
+    </footer>
     
 
-    <script>
-    const audio = document.getElementById("miAudio");
-    const controlVolumen = document.getElementById("volumen");
-
-    // Ajustar volumen con el slider
-    controlVolumen.addEventListener("input", () => {
-      audio.volume = controlVolumen.value;
-    });
-
-    // Cuando termina el audio, esperar 3s y volver a reproducir
-    audio.addEventListener("ended", () => {
-      setTimeout(() => {
-        audio.currentTime = 0;
-        audio.play();
-      }, 1000); 
-    });
-
-    // Manejo del autoplay bloqueado por el navegador
-    document.addEventListener("click", () => {
-      if (audio.paused) {
-        audio.play().catch(err => console.log("Autoplay bloqueado:", err));
-      }
-    });
-  </script>
+<script src="../js/volume.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
 </body>
 </html>

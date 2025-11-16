@@ -3,9 +3,13 @@
     padding: 0;
     box-sizing: border-box;
   }
+  html, body {
+    height: 100%;
+    margin: 0;
+  }
   body {
-    height: 100vh;
-    width: 100%;
+    display: flex;
+    flex-direction: column;
   }
    #ets {
     height: 50px;    
@@ -21,6 +25,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    flex: 1;
   }
   #txt {
     height: 400px;

@@ -3,8 +3,16 @@
     padding: 0;
     box-sizing: border-box;
   }
+  html, body {
+    height: 100%;
+    margin: 0;
+  }
   body {
-    height: auto;
+    display: flex;
+    flex-direction: column;
+  }
+  #container{
+    flex: 1;
   }
   #ets {
     height: 50px;    
@@ -24,11 +32,10 @@
   #submit {
     margin-top: 10px;
   }
-  #info{
+  #foot{
     height: 100px;
     width: 100%;
     background-color: ghostwhite;
-    margin-top: 35vh;
     display: flex;
     align-items: center;
     justify-content: center;

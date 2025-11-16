@@ -1,16 +1,41 @@
 <?php
 include "conecction.php";
-$name = $_POST['first'];
-$last = $_POST['last'];
-$id = $_POST['id'];
-$birth = $_POST['birth'];
-$country = $_POST['country'];
-$language = $_POST['language'];
 
-$stmt = $conn->prepare("INSERT INTO data (`name`, `studentId`, `Birthday`, `country`, `language`) VALUES (?, ?, ?, ?, ?)");
-        if(!$stmt) die("Error prepare: ".$conn->error);
+$data = $_POST;
 
-        $stmt->bind_param("ssdss", $name, $id, $birth, $country, $language);
-        $stmt->execute();
-        $stmt->close();
-        $conn->close();
+if (empty($data)) {
+    $data = json_decode(file_get_contents("php://input"), true);
+}
+
+$isAjax = (!empty($_SERVER['HTTP_X_REQUESTED_WITH']) || isset($data['ajax']));
+
+if ($isAjax) {
+
+    $first = $data['first'];
+    $last = $data['last'];
+    $name = $first . " " . $last;
+    $id = $data['id'];
+    $birth = $data['birth'];
+    $country = $data['country'];
+    $language = $data['language'];
+
+    $stmt = $conn->prepare("INSERT INTO data (`name`, `studentId`, `Birthday`, `country`, `language`) VALUES (?, ?, ?, ?, ?)");
+    if (!$stmt) {
+        echo json_encode(['success' => false, 'error' => $conn->error]);
+        exit;
+    }
+
+    // Todos como strings
+    $stmt->bind_param("sssss", $name, $id, $birth, $country, $language);
+
+    $success = $stmt->execute();
+
+    echo json_encode([
+        'success' => $success
+    ]);
+
+    $stmt->close();
+    $conn->close();
+    exit; 
+}
+
