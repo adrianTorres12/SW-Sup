@@ -1,5 +1,6 @@
 <?php
 include "conecction.php";
+session_start();
 
 $data = $_POST;
 
@@ -27,7 +28,7 @@ if ($isAjax) {
 
     // Todos como strings
     $stmt->bind_param("sssss", $name, $id, $birth, $country, $language);
-
+    $_SESSION['id'] = $id;
     $success = $stmt->execute();
 
     echo json_encode([
