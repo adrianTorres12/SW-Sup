@@ -12,20 +12,24 @@
         <div class="container-fluid">
             <img src="../img/ets.webp" class="img-fluid rounded float-start" alt="ets" id="ets">
             <div class="volumen-control">
-                <label for="volumen">Volumen:</label>
+                <label for="volumen">Volume:</label>
                 <input type="range" id="volumen" min="0" max="1" step="0.01" value="0.5">
             </div>
         </div>
     </nav> 
+    
     <div id="container"> 
-
+        <!-- <div id="popup">
+            <button id="start">Start</button>
+        </div> -->
         <div id="txt">
             <p id="maintxt">Imagine that an organization is conducting a global survey about cities around the world, and you have agreed to participate in a phone interview.</p>
             <p>Could you briefly describe the city where you live?</p>
-            <div id="counter"><p id="seconds">00:15</p></div>
+            <div id="counter"><p id="seconds">00:03</p></div>
         </div>
         
-        <audio id="miAudio" src="../audio/audio.mp3" autoplay></audio>
+        <audio id="miAudio" src="../audio/testaudio.mp3" autoplay></audio>
+        <audio id="beep" src="../audio/Beep.mp3"></audio>
         <audio id="ultimaGrabacion" controls></audio>
 
     </div>
