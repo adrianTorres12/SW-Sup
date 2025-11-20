@@ -1,7 +1,10 @@
 <?php
 include "conecction.php";
+session_start();
 
-$sql = "SELECT ruta, tipo FROM test ORDER BY id DESC LIMIT 1";
+$user = $_SESSION['id'];
+
+$sql = "SELECT ruta, tipo FROM test WHERE $user = user ORDER BY id DESC LIMIT 1 ";
 $result = $conn->query($sql);
 
 if($result && $row = $result->fetch_assoc()){
