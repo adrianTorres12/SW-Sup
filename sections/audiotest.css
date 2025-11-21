@@ -75,3 +75,31 @@
   #maintxt {
     text-align: center;
   }
+  #popup {
+  position: fixed; /* mejor que absolute para overlay completo */
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0,0,0,0.85); /* fondo semi-transparente */
+  color: grey;
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#start {
+  height: 50px;
+  width: 150px;
+  background-color: steelblue;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+#start:hover {
+  background-color: deepskyblue;
+}
+
