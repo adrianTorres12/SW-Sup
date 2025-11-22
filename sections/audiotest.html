@@ -20,7 +20,6 @@
     
     <div id="container"> 
         <!-- <div id="popup">
-            <button id="start">Start</button>
         </div> -->
         <div id="txt">
             <p id="maintxt">Imagine that an organization is conducting a global survey about cities around the world, and you have agreed to participate in a phone interview.</p>
@@ -29,15 +28,21 @@
         </div>
         
         <audio id="miAudio" src="../audio/testaudio.mp3" autoplay></audio>
-<<<<<<< HEAD
         
         <div id="popup">
-            <audio id="ultimaGrabacion" controls hidden></audio>
+            <div id="popupContent">
+                <p id="againTxt">
+                    Please confirm that you could hear the audio clearly.
+                    Ensure that your audio is functioning correctly.
+                    If you experience any issues, inform your instructor, click the button below, and try again.
+                </p>
+
+                <audio id="ultimaGrabacion" controls></audio>
+
+                <button id="start">Repeat</button>
+            </div>
         </div>
-=======
-        <audio id="beep" src="../audio/Beep.mp3"></audio>
-        <audio id="ultimaGrabacion" controls></audio>
->>>>>>> 5d0c73e358085a6feb73d5cd5c264b4217049872
+
 
     </div>
     
@@ -47,6 +52,7 @@
     
 
 <script src="../js/audiotest.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
 </body>
 </html>

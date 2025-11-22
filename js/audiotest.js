@@ -1,11 +1,26 @@
 const audio = document.getElementById("miAudio");
-const beep = document.getElementById("beep");
+const beep = new Audio("../audio/Beep.mp3");
 const controlVolumen = document.getElementById("volumen");
 const ultimaGrabacion = document.getElementById("ultimaGrabacion");
 const cont = document.getElementById("counter");
 
 const PRE_BEEP = 3;  // Timer antes del beep
 const GRABACION = 15;  // Grabación de 15s
+
+// Cargar volumen guardado (si existe)
+const volumenGuardado = localStorage.getItem("volumenAudio");
+if (volumenGuardado !== null) {
+    audio.volume = volumenGuardado;
+    controlVolumen.value = volumenGuardado;
+}
+
+// Ajustar volumen con el slider
+controlVolumen.addEventListener("input", () => {
+    audio.volume = controlVolumen.value;
+
+    // Guardar volumen en el navegador
+    localStorage.setItem("volumenAudio", controlVolumen.value);
+});
 
 // Formato mm:ss para los timers
 function formatoTiempo(segundos) {
@@ -15,10 +30,6 @@ function formatoTiempo(segundos) {
 }
 
 
-// document.getElementById('start').addEventListener('click', () => {
-    //   document.getElementById('popup').style.display = 'none';
-    //   audio.play();
-    // });
     
     // ----------------------------
     //   CUANDO MI AUDIO TERMINA
@@ -84,7 +95,7 @@ function formatoTiempo(segundos) {
         mediaRecorder.onstop = async () => {
             const blob = new Blob(chunks, { type: "audio/webm" });
         const formData = new FormData();
-        formData.append("audio", blob, "grabacion_" + Date.now() + ".webm");
+        formData.append("audio", blob, "grab" + ".webm");
         
         try {
             const res = await fetch("../php/subir_audio.php", {
@@ -93,6 +104,8 @@ function formatoTiempo(segundos) {
             });
             console.log(await res.text());
             cargarUltimaGrabacion();
+            document.getElementById('popup').classList.add('show');
+
         } catch (err) {
             console.error("Error subiendo audio:", err);
         }
@@ -102,4 +115,32 @@ function formatoTiempo(segundos) {
 function cargarUltimaGrabacion() {
     ultimaGrabacion.src = "../php/obtener_audio.php";
 }
-cargarUltimaGrabacion();
+
+// Función para eliminar el archivo vía backend
+function eliminarArchivo() {
+    return axios.post('../php/eliminar.php')
+        .then(res => {
+            console.log('Respuesta del servidor:', res.data);
+        })
+        .catch(err => {
+            console.error('Error al eliminar el archivo:', err);
+        });
+}
+
+// Botón "start" que dispara la acción
+document.getElementById("start").addEventListener("click", () => {
+    const popup = document.getElementById("popup");
+
+    // Animación: ocultar popup
+    popup.classList.remove("show");
+    popup.classList.add("hide");
+
+    // Esperar animación (300ms) y luego eliminar archivo
+    setTimeout(() => {
+        eliminarArchivo().then(() => {
+            // Recargar la página después de eliminar
+            location.reload();
+        });
+    }, 300); // Coincide con la duración de la animación CSS
+});
+
