@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 16-11-2025 a las 20:16:40
+-- Tiempo de generación: 22-11-2025 a las 02:56:14
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.0.30
 
@@ -42,7 +42,10 @@ CREATE TABLE `data` (
 --
 
 INSERT INTO `data` (`id`, `name`, `studentId`, `Birthday`, `country`, `language`, `fecha`) VALUES
-(40, 'Adriab Enmanuel Torres Ruano', '202502001', '2008-04-13', 'El Salvador', 'Spanish', '2025-11-16 19:11:34');
+(40, 'Adriab Enmanuel Torres Ruano', '202502001', '2008-04-13', 'El Salvador', 'Spanish', '2025-11-16 19:11:34'),
+(41, 'Adrian Enmanuel Torres Ruano', '202502001', '2008-04-13', 'El Salvador', 'Spanish', '2025-11-20 02:25:04'),
+(42, 'Adrian Enmanuel Torres Ruano', '202502002', '2025-11-19', 'El Salvador', 'Spanish', '2025-11-20 02:37:14'),
+(43, 'Adrián Torres', '202502003', '2009-06-28', 'El Salvador', 'Spanish', '2025-11-22 00:08:42');
 
 -- --------------------------------------------------------
 
@@ -65,19 +68,13 @@ CREATE TABLE `speaking` (
 
 CREATE TABLE `test` (
   `id` int(11) NOT NULL,
-  `user` int(11) DEFAULT NULL,
+  `user` varchar(10) NOT NULL,
   `date` timestamp NOT NULL DEFAULT current_timestamp(),
   `ruta` varchar(255) NOT NULL,
+  `nombre` varchar(255) NOT NULL,
   `test` int(11) DEFAULT NULL,
   `tipo` varchar(20) NOT NULL DEFAULT '''audio/webm'''
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
-
---
--- Volcado de datos para la tabla `test`
---
-
-INSERT INTO `test` (`id`, `user`, `date`, `ruta`, `test`, `tipo`) VALUES
-(6, NULL, '2025-11-16 19:13:01', 'uploads/1763320381_grabacion_1763320381123.webm', NULL, 'audio/webm');
 
 --
 -- Índices para tablas volcadas
@@ -109,7 +106,7 @@ ALTER TABLE `test`
 -- AUTO_INCREMENT de la tabla `data`
 --
 ALTER TABLE `data`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
 
 --
 -- AUTO_INCREMENT de la tabla `speaking`
@@ -121,7 +118,7 @@ ALTER TABLE `speaking`
 -- AUTO_INCREMENT de la tabla `test`
 --
 ALTER TABLE `test`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
