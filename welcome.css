@@ -1,0 +1,432 @@
+/* General settings */
+body {
+    margin: 0;
+    font-family: "Poppins", sans-serif;
+    background-color: #F8FAFD;
+    color: #1A1A1A;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Header */
+.main-header {
+    background-color: #003B95;
+    padding: 15px 25px;
+    position: sticky;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 1000;
+    box-shadow: 0 2px 15px rgba(0, 59, 149, 0.1);
+}
+
+.toeic-logo {
+    height: 45px;
+    filter: brightness(0) invert(1);
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.user-profile-btn {
+    background: rgba(255, 255, 255, 0.15);
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.user-profile-btn:hover {
+    background: rgba(255, 255, 255, 0.25);
+    transform: translateY(-1px);
+}
+
+.logout-btn {
+    background: #0056D2;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.logout-btn:hover {
+    background: #003B95;
+    transform: translateY(-1px);
+    color: white;
+}
+
+.user-info i {
+    font-size: 1.1rem;
+}
+
+.user-name {
+    font-size: 0.95rem;
+    font-weight: 500;
+}
+
+/* Modal personalización */
+.modal-content {
+    border-radius: 12px;
+    border: none;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+.modal-header {
+    background-color: #E8F0FE;
+    border-bottom: 2px solid #0056D2;
+    border-radius: 12px 12px 0 0;
+    padding: 20px;
+}
+
+.modal-title {
+    color: #003B95;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+}
+
+.modal-body {
+    padding: 25px;
+}
+
+.modal-footer {
+    border-top: 1px solid #E8F0FE;
+    padding: 20px;
+}
+
+.btn-primary {
+    background-color: #0056D2;
+    border-color: #0056D2;
+    padding: 8px 20px;
+    border-radius: 8px;
+    font-weight: 500;
+}
+
+.btn-primary:hover {
+    background-color: #003B95;
+    border-color: #003B95;
+}
+
+.btn-secondary {
+    background-color: #6c757d;
+    border-color: #6c757d;
+    padding: 8px 20px;
+    border-radius: 8px;
+    font-weight: 500;
+}
+
+.info-item {
+    padding: 10px 0;
+    border-bottom: 1px solid #E8F0FE;
+}
+
+.info-item:last-child {
+    border-bottom: none;
+}
+
+.badge {
+    font-size: 0.85rem;
+    padding: 5px 10px;
+    border-radius: 20px;
+}
+
+/* Main content */
+.content {
+    padding: 120px 20px 60px;
+    text-align: center;
+    max-width: 1000px;
+    margin: 0 auto;
+    flex: 1;
+}
+
+.welcome-title {
+    font-size: 2.2rem;
+    color: #003B95;
+    margin-bottom: 20px;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.welcome-description {
+    font-size: 1.15rem;
+    line-height: 1.7;
+    color: #444;
+    margin-bottom: 50px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Cards */
+.cards-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    justify-content: center;
+    gap: 30px;
+    max-width: 900px;
+    margin: 0 auto 40px;
+}
+
+.card {
+    background: white;
+    padding: 35px 25px;
+    border-radius: 20px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    border: 2px solid transparent;
+    height: 100%;
+}
+
+.card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 5px;
+    background: linear-gradient(90deg, #0056D2, #003B95);
+}
+
+.practice-card::before {
+    background: linear-gradient(90deg, #28a745, #20c997);
+}
+
+.evaluation-card::before {
+    background: linear-gradient(90deg, #0056D2, #003B95);
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+    border-color: #0056D2;
+}
+
+.practice-card:hover {
+    border-color: #28a745;
+}
+
+.evaluation-card:hover {
+    border-color: #0056D2;
+}
+
+.icon {
+    font-size: 3.5rem;
+    color: #0056D2;
+    margin-bottom: 20px;
+}
+
+.practice-card .icon {
+    color: #28a745;
+}
+
+.card-title {
+    font-size: 1.4rem;
+    color: #003B95;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+.card-description {
+    font-size: 0.95rem;
+    color: #666;
+    line-height: 1.5;
+    margin-bottom: 20px;
+    flex-grow: 1;
+}
+
+.card-hint {
+    font-size: 0.85rem;
+    color: #666;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 15px;
+    padding: 8px 12px;
+    background-color: #E8F0FE;
+    border-radius: 8px;
+    width: 100%;
+    justify-content: center;
+}
+
+.card-hint i {
+    font-size: 1rem;
+}
+
+/* Status Messages */
+.status-message {
+    max-width: 600px;
+    margin: 30px auto;
+    padding: 20px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    font-size: 1rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.status-message.success {
+    background: rgba(16, 185, 129, 0.1);
+    color: #065f46;
+    border: 2px solid rgba(16, 185, 129, 0.2);
+}
+
+.status-message.info {
+    background: rgba(59, 130, 246, 0.1);
+    color: #1e40af;
+    border: 2px solid rgba(59, 130, 246, 0.2);
+}
+
+.status-message i {
+    font-size: 1.5rem;
+}
+
+/* Acknowledgment */
+.acknowledgment {
+    margin-top: 40px;
+    font-size: 0.95rem;
+    color: #666;
+    padding: 20px;
+    background-color: #E8F0FE;
+    border-radius: 12px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.6;
+}
+
+/* Footer */
+.footer {
+    margin-top: auto;
+    background: #003B95;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+    .cards-container {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 25px;
+    }
+    
+    .welcome-title {
+        font-size: 1.9rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .main-header {
+        flex-direction: column;
+        padding: 12px 15px;
+        gap: 15px;
+    }
+    
+    .user-info {
+        width: 100%;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    
+    .content {
+        padding: 140px 15px 40px;
+    }
+    
+    .welcome-title {
+        font-size: 1.7rem;
+        padding: 0 10px;
+    }
+    
+    .welcome-description {
+        font-size: 1.05rem;
+        padding: 0 10px;
+    }
+    
+    .cards-container {
+        grid-template-columns: 1fr;
+        max-width: 500px;
+        gap: 20px;
+    }
+    
+    .card {
+        padding: 30px 20px;
+    }
+}
+
+@media (max-width: 576px) {
+    .main-header {
+        padding: 10px;
+    }
+    
+    .toeic-logo {
+        height: 35px;
+    }
+    
+    .user-info {
+        flex-direction: row;
+        justify-content: center;
+        gap: 10px;
+    }
+    
+    .user-profile-btn,
+    .logout-btn {
+        padding: 6px 12px;
+        font-size: 0.85rem;
+    }
+    
+    .content {
+        padding: 130px 10px 30px;
+    }
+    
+    .welcome-title {
+        font-size: 1.5rem;
+    }
+    
+    .welcome-description {
+        font-size: 1rem;
+    }
+    
+    .icon {
+        font-size: 3rem;
+    }
+    
+    .status-message {
+        flex-direction: column;
+        text-align: center;
+        gap: 10px;
+        padding: 15px;
+    }
+    
+    .acknowledgment {
+        padding: 15px;
+        font-size: 0.9rem;
+    }
+}
