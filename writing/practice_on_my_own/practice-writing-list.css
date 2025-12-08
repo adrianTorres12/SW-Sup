@@ -1,0 +1,187 @@
+/* ==========================================================
+   practice-writing-list.css - UPDATED
+   ========================================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background: #f8fafd;
+    color: #002b6f;
+    min-height: 100vh;
+}
+
+/* ================= HEADER ================= */
+.header {
+    text-align: center;
+    padding: 25px 20px;
+    border-bottom: 2px solid #e8e8e8;
+    background: white;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.toeic-image {
+    width: 60px;
+    height: auto;
+}
+
+.page-title {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #003b91;
+    margin-top: 10px;
+}
+
+/* =============== NEW SECTION TITLE =============== */
+.section-title {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: #003b91;
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+.section-title span {
+    color: #1b63d8;
+}
+
+/* ================= GRID ================= */
+.container {
+    width: 90%;
+    max-width: 1400px;
+    margin: 40px auto;
+    padding: 0 15px;
+}
+
+.tests-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 25px;
+}
+
+/* ================= CARD ================= */
+.test-card {
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    border: 2px solid #d3dff8;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 4px 12px rgba(0, 43, 111, 0.08);
+}
+
+.test-card:hover {
+    transform: translateY(-8px);
+    border-color: #1b63d8;
+    box-shadow: 0 8px 20px rgba(0, 43, 111, 0.15);
+}
+
+/* Top section with icon */
+.card-top {
+    background: linear-gradient(135deg, #e9f0ff, #d0e0fd);
+    padding: 35px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card-icon {
+    font-size: 2.7rem;
+    color: #003b91;
+}
+
+/* Bottom section with the test title */
+.card-bottom {
+    padding: 20px;
+    background: white;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.test-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #002b6f;
+    margin-bottom: 10px;
+    text-align: center;
+    line-height: 1.4;
+}
+
+.btn-primary {
+    background: #0056d2;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 8px;
+    color: white;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+    background: #003b95;
+    transform: translateY(-2px);
+}
+
+/* ================= NO TESTS MESSAGE ================= */
+.no-tests {
+    text-align: center;
+    font-size: 1.2rem;
+    color: #6c757d;
+    margin-top: 40px;
+    padding: 30px;
+    background: white;
+    border-radius: 10px;
+    border: 2px dashed #dee2e6;
+}
+
+/* ================= MEDIA QUERIES ================= */
+@media (max-width: 1200px) {
+    .tests-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 992px) {
+    .tests-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .tests-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .page-title {
+        font-size: 1.5rem;
+    }
+    
+    .container {
+        width: 95%;
+    }
+}
+
+@media (max-width: 576px) {
+    .card-top {
+        padding: 25px 0;
+    }
+    
+    .card-icon {
+        font-size: 2.2rem;
+    }
+    
+    .test-title {
+        font-size: 1.1rem;
+    }
+    
+    .card-bottom {
+        padding: 15px;
+    }
+}
