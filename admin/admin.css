@@ -1,0 +1,8 @@
+body { background: #f3f6fb; }
+    .sidebar { width: 260px; height: 100vh; background: #1f2937; position: fixed; top: 0; left: 0; padding: 20px; color: #fff; }
+    .sidebar h2 { font-size: 1.4rem; }
+    .sidebar a { color: #cbd5e1; display: block; padding: 10px 0; text-decoration: none; font-size: 1rem; }
+    .sidebar a:hover { color: #fff; }
+    .content { margin-left: 280px; padding: 30px; }
+    .card { border-radius: 16px; }
+    .btn-main { background: #2563eb; color: white; border-radius: 12px; }

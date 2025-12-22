@@ -33,6 +33,6 @@ document.addEventListener("click", () => {
 
 document.getElementById("arrow").addEventListener("click", (e) => {
     e.preventDefault(); // evita que intente seguir el href vacío
-    window.location.replace("../sections/audio.html");
+    window.location.replace("../sections/audiotest.html");
 });
 

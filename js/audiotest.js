@@ -4,6 +4,7 @@ const controlVolumen = document.getElementById("volumen");
 const ultimaGrabacion = document.getElementById("ultimaGrabacion");
 const cont = document.getElementById("counter");
 
+
 const PRE_BEEP = 3;  // Timer antes del beep
 const GRABACION = 15;  // Grabación de 15s
 
@@ -105,6 +106,7 @@ function formatoTiempo(segundos) {
             console.log(await res.text());
             cargarUltimaGrabacion();
             document.getElementById('popup').classList.add('show');
+            document.getElementById('foot').style.display("flex");
 
         } catch (err) {
             console.error("Error subiendo audio:", err);
@@ -134,6 +136,7 @@ document.getElementById("start").addEventListener("click", () => {
     // Animación: ocultar popup
     popup.classList.remove("show");
     popup.classList.add("hide");
+    document.getElementById('foot').style.display("none");
 
     // Esperar animación (300ms) y luego eliminar archivo
     setTimeout(() => {
@@ -144,3 +147,7 @@ document.getElementById("start").addEventListener("click", () => {
     }, 300); // Coincide con la duración de la animación CSS
 });
 
+const arrow = document.getElementById("arrow");
+arrow.addEventListener("click", () => {
+    window.location.replace("../sections/instructions.html")
+});
