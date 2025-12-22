@@ -1,0 +1,172 @@
+/* auth.css - Login / Sign Up styling
+   White-dominant, blue accents (#003366 / #0055a5), responsive
+*/
+
+/* Reset & base */
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: "Inter", "Poppins", Arial, sans-serif;
+  background: linear-gradient(180deg, #f7f9fc 0%, #ffffff 100%);
+  color: #003366;
+}
+
+/* Fixed header */
+.main-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: #003366;
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  z-index: 50;
+  box-shadow: 0 2px 8px rgba(3, 35, 65, 0.08);
+}
+.toeic-logo { height: 44px; }
+
+/* Main wrapper centered */
+.auth-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 120px 20px; /* leave space for header */
+  min-height: calc(100vh - 120px);
+}
+
+/* Card */
+.auth-card {
+  width: 100%;
+  max-width: 820px;
+  background: #fff;
+  border-radius: 14px;
+  box-shadow: 0 8px 30px rgba(3, 35, 65, 0.06);
+  padding: 30px;
+  position: relative;
+  overflow: visible;
+}
+
+/* Tabs in top-right corner */
+.auth-tabs {
+  position: absolute;
+  right: 16px;
+  top: -18px;
+  display: flex;
+  gap: 6px;
+}
+.tab {
+  border-radius: 10px;
+  padding: 8px 12px;
+  font-weight: 600;
+  border: 2px solid rgba(27,99,216,0.12);
+  background: #ffffff;
+  cursor: pointer;
+  color: #003366;
+}
+.tab.active {
+  background: linear-gradient(180deg,#e9f1ff,#dbeeff);
+  border-color: #1b63d8;
+  box-shadow: 0 6px 14px rgba(27,99,216,0.12);
+}
+
+/* Forms */
+.forms {
+  display: flex;
+  gap: 24px;
+  align-items: stretch;
+}
+.form {
+  width: 100%;
+  display: none;
+  flex-direction: column;
+  gap: 12px;
+}
+.form.active { display: flex; }
+
+.field { display: flex; flex-direction: column; gap: 6px; }
+.label-text { font-size: 0.95rem; color: #06304a; display: flex; gap: 8px; align-items: center; }
+.field input[type="text"],
+.field input[type="email"],
+.field input[type="password"],
+.field select {
+  padding: 12px 14px;
+  border-radius: 10px;
+  border: 1px solid #e3e8f6;
+  background: #fff;
+  outline: none;
+  font-size: 1rem;
+  transition: box-shadow 0.15s, border-color 0.15s;
+}
+.field input:focus,
+.field select:focus {
+  box-shadow: 0 6px 18px rgba(27,99,216,0.08);
+  border-color: #1b63d8;
+}
+
+/* password wrapper and eye */
+.password-wrapper { position: relative; display: flex; }
+.password-wrapper input { width: 100%; padding-right: 44px; }
+.eye-toggle {
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 1.05rem;
+  color: #6b778a;
+}
+
+/* checkbox */
+.checkbox { display: flex; gap: 12px; align-items: center; font-size: 0.95rem; color: #334e6b; margin-top: 6px; }
+.checkbox input { width: 16px; height: 16px; }
+
+/* actions */
+.form-actions { display: flex; align-items: center; gap: 16px; margin-top: 8px; }
+.btn { padding: 10px 18px; border-radius: 10px; border: none; cursor: pointer; font-weight: 700; }
+.btn.primary { background: #0055a5; color: #fff; box-shadow: 0 8px 18px rgba(0,85,165,0.12); }
+.forgot-link { color: #1b63d8; text-decoration: none; font-size: 0.95rem; }
+
+/* small note */
+.small-note { font-size: 0.85rem; color: #6b778a; margin-top: 8px; }
+
+/* class code field hidden by default (JS toggles display) */
+.class-code-field { display: none; }
+
+/* confirm password visual feedback */
+#signup_password_confirm.valid { box-shadow: 0 6px 18px rgba(46, 204, 113, 0.12); border-color: rgba(46,204,113,0.6); }
+#signup_password_confirm.invalid { box-shadow: 0 6px 18px rgba(255,99,71,0.08); border-color: rgba(255,99,71,0.6); }
+
+/* Loading overlay */
+.loading-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(255,255,255,0.85);
+  display: flex;
+  flex-direction: column;
+  align-items:center;
+  justify-content:center;
+  z-index: 9999;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+.spinner {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  border: 6px solid rgba(0,85,165,0.14);
+  border-top-color: #0055a5;
+  animation: spin 1s linear infinite;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* Modal Styles (added inline in HTML) */
+
+/* responsive */
+@media (max-width: 720px) {
+  .auth-card { padding: 20px; }
+  .auth-tabs { right: 10px; top: -20px; gap:4px; }
+  .forms { flex-direction: column; }
+}
